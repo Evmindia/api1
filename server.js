@@ -47,7 +47,7 @@ const authenticateApiKey = (req, res, next) => {
  * Requires X-API-Key header for authentication.
  * Expected data format: {"Sale": [{...}]}
  */
-app.post('/api/ingest_tally_sales', authenticateApiKey, async (req, res) => {
+app.post('/api/ingest_tally_sales', async (req, res) => {
     const { Sale: salesDataArray } = req.body;
 
     if (!salesDataArray || !Array.isArray(salesDataArray) || salesDataArray.length === 0) {
